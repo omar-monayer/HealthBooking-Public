@@ -76,23 +76,21 @@ export default {
       fetch(`${API_BASE_URL}/slots`)
         .then(res => res.json())
         .then(data => {
-         let parsed = data;
+          let parsed = data;
+    
           if (data.body) {
             parsed = typeof data.body === "string" ? JSON.parse(data.body) : data.body;
           }
+    
           this.slots = parsed
             .filter(s => !s.isBooked)
             .map(s => s.slot);
-            this.slots = parsed
-              .filter(s => !s.isBooked)
-              .map(s => s.slot);
-          })
+        })
         .catch(err => {
           console.error("Error loading slots:", err);
           alert("Failed to load available slots.");
         });
-    },
-
+    }
     submitAppointment() {
       const payload = {
         patientName: this.name,
