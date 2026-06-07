@@ -90,7 +90,7 @@ export default {
           console.error("Error loading slots:", err);
           alert("Failed to load available slots.");
         });
-    }
+    },
     submitAppointment() {
       const payload = {
         patientName: this.name,
